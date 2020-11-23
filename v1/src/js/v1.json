@@ -3,6 +3,11 @@
   "info": {
     "version": "1.0.0",
     "title": "WU_API",
+	"description": "This is a API for WhatsUp 24/7",
+	"contact": {
+		"name": "WhatsUp 24/7 Support",
+		"email": "support@whatsup237.com"
+	},
     "license": {
       "name": "MIT"
     }
