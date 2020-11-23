@@ -16,8 +16,99 @@
         {
             "url": "http://petstore.swagger.io/v1"
         }
-    ],
+	],
+	"tags": [
+		{
+			"name": "events",
+			"description": "Event calls"
+		},
+		{
+			"name": "organizations",
+			"description": "Organization calls"
+		},
+		{
+			"name": "destinations",
+			"description": "Destination calls"
+		}
+	],
     "paths": {
+		"/event": {
+			"get": {
+				"summary": "Request a specific event",
+				"operationId": "getEvent",
+				"tags": [
+					"events"
+				],
+				"parameters": [
+					{
+						"name": "id",
+                        "in": "query",
+						"description": "ID of the event",
+						"required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Event Details"
+					},
+					"405": {
+						"description": "Event does not exist"
+					},
+					"default": {
+                        "description": "unexpected error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Error"
+                                }
+                            }
+                        }
+                    }
+				}
+			}
+		},
+		"/events": {
+			"get": {
+				"summary": "Request a list of events",
+				"operationId": "listEvents",
+				"tags": [
+					"events"
+				],
+				"parameters": [
+					{
+						"name": "zip",
+						"in": "query",
+						"description": "Area Zip Code",
+						"required": true,
+						"schema": {
+                            "type": "string"
+                        }
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "List of Events"
+					},
+					"500": {
+						"description": "Invalid Zip Code"
+					},
+					"default": {
+                        "description": "unexpected error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Error"
+                                }
+                            }
+                        }
+                    }
+				}
+			}
+		},
         "/user": {
             "get": {
                 "summary": "Details about a user",
