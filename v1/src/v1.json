@@ -14,7 +14,7 @@
     },
     "servers": [
         {
-            "url": "http://petstore.swagger.io/v1"
+            "url": "https://api.whatsup247.com/v1"
         }
 	],
 	"tags": [
@@ -87,6 +87,18 @@
 						"schema": {
                             "type": "string"
                         }
+					},
+					{
+						"name": "distance",
+						"in": "query",
+						"description": "Radius around zip code in miles",
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"name": "dateFrom",
+						"in": "query"
 					}
 				],
 				"responses": {
